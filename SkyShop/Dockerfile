@@ -1,4 +1,4 @@
-FROM maven:3.8.5-openjdk-21 AS builder
+FROM maven:amazoncorretto-21-al2023 AS builder
 
 WORKDIR /home/app
 COPY pom.xml .
