@@ -1,4 +1,4 @@
-FROM openjdk:21-slim AS builder
+FROM maven:3.9.9-amazoncoretto-21-al2023 AS builder
 
 WORKDIR /home/app
 COPY pom.xml .
