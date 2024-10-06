@@ -3,7 +3,7 @@ FROM openjdk:21-slim AS builder
 WORKDIR /home/app
 COPY pom.xml .
 COPY src ./src
-RUN mvn package -DskipTests
+RUN mvn package
 
 FROM openjdk:21-slim
 COPY --from=builder /home/app/target/your-artifact.jar /app.jar
