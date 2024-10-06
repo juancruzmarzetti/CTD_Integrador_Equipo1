@@ -1,12 +1,13 @@
-FROM maven:3.9.9-amazoncorretto-21-al2023 AS build
+FROM maven:3.8.5-openjdk-21 AS builder
 
-RUN mkdir /home/app
-COPY . /home/app
-RUN cd /home/app && mvn package
+WORKDIR /home/app
+COPY pom.xml .
+COPY src ./src
+RUN mvn package -DskipTests
 
 FROM openjdk:21-slim
-COPY --from=build /home/app/target/SkyShop-0.0.1-SNAPSHOT.jar /myproject.jar
+COPY --from=builder /home/app/target/your-artifact.jar /app.jar
 
 EXPOSE 8080
 
-CMD ["java", "-Delastic.apm.service_name=myproject -Delastic.apm.application_packages=com.example.myproject","-jar", "/myproject.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
