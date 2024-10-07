@@ -30,7 +30,7 @@ jobs:
           echo "spring.datasource.url=jdbc:postgresql://$DB_HOST:$DB_PORT/railway" >> SkyShop/src/main/resources/application-secrets.properties
           echo "spring.datasource.username=$DB_USER" >> SkyShop/src/main/resources/application-secrets.properties
           echo "spring.datasource.password=$DB_PASSWORD" >> SkyShop/src/main/resources/application-secrets.properties
-          echo "sendgrid.key = $SENDGRID_API_KEY" >> src/main/resources/application-secrets.properties
+          echo "sendgrid.key = $SENDGRID_API_KEY" >> SkyShop/src/main/resources/application-secrets.properties
 
       - name: Build with Maven
         run: |
