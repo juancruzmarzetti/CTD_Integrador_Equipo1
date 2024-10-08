@@ -11,7 +11,7 @@ const Historial = () => {
   useEffect(() => {
     const fetchOrdenes = async () => {
       try {
-        const response = await fetch(`https://vivacious-encouragement.up.railway.app/api/orders/user/${loggedUser.id}`);
+        const response = await fetch(`https://junction.proxy.rlwy.net:33337/api/orders/user/${loggedUser.id}`);
         if (!response.ok) {
           throw new Error('Error al obtener las órdenes');
         }

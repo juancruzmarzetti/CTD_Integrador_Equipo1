@@ -21,8 +21,8 @@ const EditProd = () => {
     const {loggedUser, token, updateProd} = useContext(BotonContext);
     const [isMobile, setIsMobile] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
-    const urlGet = "https://vivacious-encouragement.up.railway.app/api/items/" + id;
-    const url = "https://vivacious-encouragement.up.railway.app/api/items";
+    const urlGet = "https://junction.proxy.rlwy.net:33337/api/items/" + id;
+    const url = "https://junction.proxy.rlwy.net:33337/api/items";
 
     const getProdById = async () => {
       const settings = {
