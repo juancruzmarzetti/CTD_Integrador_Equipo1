@@ -64,7 +64,7 @@ const Login = () => {
 
     if (!hasErrors) {
       try {
-        const response = await fetch('https://junction.proxy.rlwy.net:33337/api/users/login', {
+        const response = await fetch('https://ctdintegradorequipo1-production.up.railway.app/api/users/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -26,7 +26,7 @@ const Detail = () => {
   // const [selectedDate, setSelectedDate] = useState(new Date());
   const [isHorarioVisible, setIsHorarioVisible] = useState(false);
   const [isFavorito, setIsFavorito] = useState(false); // Inicialmente en false
-  const url = "https://junction.proxy.rlwy.net:33337/api/items/" + id;
+  const url = "https://ctdintegradorequipo1-production.up.railway.app/api/items/" + id;
 
   const handleAgregar = async () => {
     if (!horaSeleccionada || !fechaSeleccionada) {
@@ -42,7 +42,7 @@ const Detail = () => {
     agregarProductoAlCarrito(producto, fechaSeleccionada, horaSeleccionada);
 
     try {
-        const cartResponse = await axios.get(`https://junction.proxy.rlwy.net:33337/api/carts/user/${loggedUser.id}`);
+        const cartResponse = await axios.get(`https://ctdintegradorequipo1-production.up.railway.app/api/carts/user/${loggedUser.id}`);
         const cartId = cartResponse.data.id; // Asegúrate de que sea cartResponse.data
 
         if (!cartId) {
@@ -62,7 +62,7 @@ const Detail = () => {
             body: JSON.stringify(productData),
         };
 
-        const responseCart = await fetch(`https://junction.proxy.rlwy.net:33337/api/carts/${cartId}/items`, settings);
+        const responseCart = await fetch(`https://ctdintegradorequipo1-production.up.railway.app/api/carts/${cartId}/items`, settings);
 
         if (responseCart.ok) {
             const data = await responseCart.json();
