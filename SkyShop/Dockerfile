@@ -1,20 +1,21 @@
-FROM eclipse-temurin:21-jdk as build
+FROM eclipse-temurin:21-jdk AS build
 
 WORKDIR /app
 
-COPY pom.xml ./
+COPY mvnw .
+COPY .mvn/ .mvn
+COPY pom.xml .
+
 RUN ./mvnw dependency:go-offline
 
-COPY . .
+COPY src ./src
+RUN ./mvnw install -DskipTests
 
-RUN ./mvnw clean install
-
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:21-jre AS runtime
 
 WORKDIR /app
-
-COPY --from=build /app/target/*.jar /app/app.jar
+COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
