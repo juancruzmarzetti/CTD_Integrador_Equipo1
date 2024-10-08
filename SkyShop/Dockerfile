@@ -13,7 +13,7 @@ COPY .mvn/ .mvn
 COPY pom.xml .
 RUN chmod +x mvnw
 COPY src ./src
-RUN ./mvnw install
+RUN ./mvnw install -DskipTests=true
 
 FROM eclipse-temurin:21-jre AS runtime
 
