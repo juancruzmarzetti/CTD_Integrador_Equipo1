@@ -5,11 +5,8 @@ WORKDIR /app
 COPY mvnw .
 COPY .mvn/ .mvn
 COPY pom.xml .
-
-RUN ./mvnw dependency:go-offline
-
 COPY src ./src
-RUN ./mvnw install -DskipTests
+RUN ./mvnw install
 
 FROM eclipse-temurin:21-jre AS runtime
 
