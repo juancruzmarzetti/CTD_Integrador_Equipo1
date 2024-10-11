@@ -4,6 +4,8 @@ Este es un fork específicamente hecho para el deploy gratuito del Front-End y B
 
 Esta infraestructura está automatizada con Vercel y Railway. En Vercel está hecho con un template de Vite y en Railway con una instancia de Base de Datos de PostgreSQL y otra instancia que hace el deploy del Back-End (lo único personalizado es en el deploy del Back-End con Railway el Dockerfile, ya que la ejecución por default no soportaba Java 21 (/SkyShop/Dockerfile)).
 
+## Infraestructura real usada en deploy con AWS automatizando la infraestructura con Terraform (IaC): [juancruzmarzetti/full-aws-iac](https://github.com/juancruzmarzetti/full-aws-iac)
+
 ### English
 
 This is a fork specifically made for the free deployment of the Front-End and Back-End of the original project (the final project of the Certified Tech Developer program of Digital House). The main idea was to deploy on AWS, which was achieved, but not for free (so we took it down and left this infrastructure until we can make the AWS infrastructure free).
